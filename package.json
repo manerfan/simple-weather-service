@@ -4,6 +4,8 @@
   "description": "A simple Weather Service using NodeJS and Badidu apis.",
   "main": "index.js",
   "scripts": {
+    "dev": "webpack-dev-server --devtool eval-source-map --colors --hot --inline  --display-error-details --content-base ./public",
+    "build": "webpack --colors --display-error-details",
     "start": "node --harmony-async-await index.js"
   },
   "repository": {
@@ -12,8 +14,7 @@
   },
   "keywords": [
     "weather",
-    "baidu",
-    "echarts"
+    "baidu"
   ],
   "author": "ManerFan",
   "license": "Apache-2.0",
@@ -31,11 +32,17 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
+    "css-loader": "^0.25.0",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.6",
     "react-dom": "^15.3.2",
-    "webpack": "^1.13.3"
+    "redux": "^3.6.0",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   }
 }
