@@ -22,7 +22,21 @@ const http = require('http');
 const port = require('./config').port;
 const app = require('./app');
 
-const server = http.createServer(app.callback());
+const cluster = require('cluster');
+const numCPUs = require('os').cpus().length;
 
-server.listen(port, () => console.log(`App Started @0.0.0.0:${port}`));
+if (cluster.isMaster) {
+    // Fork workers.
+    for (var i = 0; i < numCPUs; i++) {
+        cluster.fork();
+    }
 
+    cluster.on('exit', (worker, code, signal) => {
+        console.log(`worker ${worker.process.pid} died`);
+    });
+} else {
+    // Workers can share any TCP connection
+    // In this case it is an HTTP server
+    const server = http.createServer(app.callback());
+    server.listen(port, () => console.log(`App Started @0.0.0.0:${port}`));
+}

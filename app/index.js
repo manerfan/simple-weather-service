@@ -18,13 +18,16 @@
  * Created by ManerFan on 2016/11/15.
  */
 
+const path = require('path');
 const Koa = require('koa');
+const favicon = require('koa-favicon');
 const serve = require('koa-static');
 const routes = require('./routes');
 const logger = require('../config/logger');
 
 const app = module.exports = new Koa();
 
+app.use(favicon(path.join(path.dirname(__dirname), 'public/favicon.ico')));
 app.use(serve('public', {gzip: true}));
 app.use(routes.routes());
 

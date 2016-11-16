@@ -24,33 +24,54 @@ const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 const BannerPlugin = require('webpack/lib/BannerPlugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
 const SourceMapDevToolPlugin = require('webpack/lib/SourceMapDevToolPlugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-    entry: {
-        weather: './app/views'
-    },
-    output: {
-        filename: '[name].chunk.js',
-        path: path.join(__dirname, 'public/javascripts')
-    },
     debug: true,
-    devtool: 'inline-source-map',
+    devtool: 'source-map',
+
+    entry: {
+        app: './app/views',
+        vendor: ['redux', 'react', 'react-dom', 'react-redux', 'react-bootstrap', 'whatwg-fetch']
+    },
+
+    output: {
+        filename: '[name].bundle.js',
+        chunkFilename: "[id].chunk.js",
+        path: path.join(__dirname, 'public/build')
+    },
+
+    /* 通过 script -- cdn 引入 */
+    /*externals: {
+     "jquery": "jQuery"
+     },*/
+
     module: {
         loaders: [
             {
                 test: /\.js$/,
                 exclude: /(node_modules)/,
                 loader: 'babel-loader'
+            },
+            {
+                test: /\.css$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader")
+            },
+            {
+                test: /\.less$/,
+                loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
             }
         ]
     },
+
     plugins: [
         new DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('production'),
             },
         }),
-        /*new CommonsChunkPlugin(path.join(__dirname, 'public/javascripts/commons.chunk.js')),*/
+        new ExtractTextPlugin('[name].css'),
+        new CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
         new UglifyJsPlugin({
             output: {
                 comments: false

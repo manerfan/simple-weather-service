@@ -19,7 +19,6 @@
  */
 
 const weather = require('../controllers/weather');
-const logger = require('../../config/logger');
 
 module.exports = async function (ctx, next) {
     ctx.body = await weather.forecast();

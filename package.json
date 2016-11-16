@@ -4,7 +4,6 @@
   "description": "A simple Weather Service using NodeJS and Badidu apis.",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --devtool eval-source-map --colors --hot --inline  --display-error-details --content-base ./public",
     "build": "webpack --colors --display-error-details",
     "start": "node --harmony-async-await index.js"
   },
@@ -24,6 +23,7 @@
   "homepage": "https://github.com/ManerFan/simple-weather-service",
   "dependencies": {
     "koa": "^2.0.0",
+    "koa-favicon": "^2.0.0",
     "koa-router": "^7.0.1",
     "koa-static": "^3.0.0",
     "log4js": "^1.0.1",
@@ -37,12 +37,16 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "css-loader": "^0.25.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "less": "^2.7.1",
+    "less-loader": "^2.2.3",
     "react": "^15.3.2",
     "react-bootstrap": "^0.30.6",
     "react-dom": "^15.3.2",
+    "react-redux": "^4.4.6",
     "redux": "^3.6.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "whatwg-fetch": "^2.0.0"
   }
 }

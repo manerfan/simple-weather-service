@@ -18,6 +18,9 @@
  * Created by ManerFan on 2016/11/15.
  */
 
+require('../../public/stylesheets/bootstrap-theme.min.css');
+require('../../public/stylesheets/main.less');
+
 const React = require('react');
 const ReactDOM = require('react-dom');
 
