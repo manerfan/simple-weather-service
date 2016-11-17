@@ -1,7 +1,7 @@
 {
   "name": "simple-weather-service",
   "version": "1.0.0",
-  "description": "A simple Weather Service using NodeJS and Badidu apis.",
+  "description": "A simple Weather Service using NodeJS and HeWeather apis.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --colors --display-error-details",
@@ -13,7 +13,7 @@
   },
   "keywords": [
     "weather",
-    "baidu"
+    "heweather"
   ],
   "author": "ManerFan",
   "license": "Apache-2.0",
@@ -28,8 +28,7 @@
     "koa-static": "^3.0.0",
     "log4js": "^1.0.1",
     "mkdirp": "^0.5.1",
-    "request": "^2.78.0",
-    "underscore": "^1.8.3"
+    "request": "^2.78.0"
   },
   "devDependencies": {
     "babel-core": "^6.18.2",
@@ -45,6 +44,8 @@
     "react-dom": "^15.3.2",
     "react-redux": "^4.4.6",
     "redux": "^3.6.0",
+    "redux-actions": "^0.13.0",
+    "redux-thunk": "^2.1.0",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.3",
     "whatwg-fetch": "^2.0.0"

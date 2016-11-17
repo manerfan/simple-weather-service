@@ -15,16 +15,11 @@
  */
 
 /**
- * Created by ManerFan on 2016/11/15.
+ * Created by ManerFan on 2016/11/17.
  */
 
-require('../../public/stylesheets/main.less');
+const {createStore, applyMiddleware} = require('redux');
+const thunkMiddleware = require('redux-thunk').default;
+const rootReducer = require('./reducers');
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Root = require('./conponents');
-
-ReactDOM.render(
-    <Root/>,
-    document.getElementById('root')
-);
+module.exports = createStore(rootReducer, applyMiddleware(thunkMiddleware));

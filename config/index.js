@@ -20,11 +20,9 @@
 
 const config = module.exports = {
     port: 80,
-    period: 300, /* in seconds */
-    apikey: 'Your Baidu Api Store Key',
-    cityname: '西安', /* cityname or cityid */
-    cityid: '101110101',
-    url: 'http://apis.baidu.com/apistore/weatherservice/recentweathers',
-    docs: 'http://apistore.baidu.com/apiworks/servicedetail/112.html',
+    url: 'https://free-api.heweather.com/v5/weather',
+    docs: 'http://docs.heweather.com',
+    city: '西安',
+    key: /*'Your App Key Here!'*/'ae9e0e3dec674c108ffd38523a9a9f9b',
     logDir: 'logs'
 };

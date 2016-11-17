@@ -15,16 +15,29 @@
  */
 
 /**
- * Created by ManerFan on 2016/11/15.
+ * Created by ManerFan on 2016/11/17.
  */
 
-require('../../public/stylesheets/main.less');
-
 const React = require('react');
-const ReactDOM = require('react-dom');
-const Root = require('./conponents');
+const {connect} = require('react-redux');
+const {Row, Col} = require('react-bootstrap');
 
-ReactDOM.render(
-    <Root/>,
-    document.getElementById('root')
-);
+const Now = ({basic, qlt, fetchingMode}) => {
+    return (
+        <Row className="show-grid">
+            <Col xs={12} md={12} lg={12}>
+
+            </Col>
+        </Row>
+    )
+};
+
+Now.propTypes = {};
+
+Now.defaultProps = {};
+
+const mapStateToProps = (state) => {
+    return {}
+};
+
+module.exports = connect(mapStateToProps)(Now);

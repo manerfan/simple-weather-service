@@ -20,6 +20,6 @@
 
 const weather = require('../controllers/weather');
 
-module.exports = async function (ctx, next) {
+module.exports = async ctx => {
     ctx.body = await weather.forecast();
 };

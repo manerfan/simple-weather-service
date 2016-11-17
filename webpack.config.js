@@ -32,7 +32,11 @@ module.exports = {
 
     entry: {
         app: './app/views',
-        vendor: ['redux', 'react', 'react-dom', 'react-redux', 'react-bootstrap', 'whatwg-fetch']
+        vendor: [
+            'redux', 'redux-promise', 'redux-actions',
+            'react', 'react-dom', 'react-redux', 'react-bootstrap',
+            'whatwg-fetch'
+        ]
     },
 
     output: {

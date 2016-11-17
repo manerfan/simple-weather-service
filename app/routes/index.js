@@ -34,6 +34,3 @@ let apiRoutes = new Router({
 apiRoutes.get('/weather', weather).post('/weather', weather);
 
 routes.use('', apiRoutes.routes(), apiRoutes.allowedMethods());
-
-
-

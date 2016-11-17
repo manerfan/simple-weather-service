@@ -15,16 +15,22 @@
  */
 
 /**
- * Created by ManerFan on 2016/11/15.
+ * Created by ManerFan on 2016/11/17.
  */
 
-require('../../public/stylesheets/main.less');
-
 const React = require('react');
-const ReactDOM = require('react-dom');
-const Root = require('./conponents');
+const {Provider} = require('react-redux');
+const store = require('../store');
+const {fetchAction} = require('../store/actions');
 
-ReactDOM.render(
-    <Root/>,
-    document.getElementById('root')
-);
+const Nav = require('./basic');
+
+store.dispatch(fetchAction());
+
+module.exports = function () {
+    return (
+        <Provider store={store}>
+            <Nav/>
+        </Provider>
+    )
+};
