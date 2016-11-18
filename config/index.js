@@ -23,6 +23,6 @@ const config = module.exports = {
     url: 'https://free-api.heweather.com/v5/weather',
     docs: 'http://docs.heweather.com',
     city: '西安',
-    key: /*'Your App Key Here!'*/'ae9e0e3dec674c108ffd38523a9a9f9b',
+    key: 'Your App Key Here!',
     logDir: 'logs'
 };

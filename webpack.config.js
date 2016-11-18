@@ -17,7 +17,7 @@
 /**
  * Created by ManerFan on 2016/11/15.
  */
-//
+
 const path = require('path');
 const CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
@@ -26,12 +26,11 @@ const DefinePlugin = require('webpack/lib/DefinePlugin');
 const SourceMapDevToolPlugin = require('webpack/lib/SourceMapDevToolPlugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-module.exports = {
-    debug: true,
-    devtool: 'source-map',
+const NODE_ENV = 'production';
 
+let config = {
     entry: {
-        app: './app/views',
+        app: './public/views',
         vendor: [
             'redux', 'redux-promise', 'redux-actions',
             'react', 'react-dom', 'react-redux', 'react-bootstrap',
@@ -71,7 +70,7 @@ module.exports = {
     plugins: [
         new DefinePlugin({
             'process.env': {
-                NODE_ENV: JSON.stringify('production'),
+                NODE_ENV: JSON.stringify(NODE_ENV),
             },
         }),
         new ExtractTextPlugin('[name].css'),
@@ -93,3 +92,9 @@ module.exports = {
         new BannerPlugin('This file is created by ManerFan')
     ]
 };
+
+if ('dev' === NODE_ENV) {
+    config = Object.assign({}, config, {debug: true, devtool: 'source-map'});
+}
+
+module.exports = config;

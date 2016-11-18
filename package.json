@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "A simple Weather Service using NodeJS and HeWeather apis.",
   "main": "index.js",
+  "engines": {
+    "npm": "^7.1.0"
+  },
   "scripts": {
     "build": "webpack --colors --display-error-details",
     "start": "node --harmony-async-await index.js"

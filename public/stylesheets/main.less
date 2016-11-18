@@ -8,21 +8,150 @@ body, #root {
 body {
   * {
     font-family: PingFang SC, Hiragino Sans GB, Helvetica Neue, Microsoft Yahei, WenQuanYi Micro Hei, sans-serif;
-    color: ghostwhite;
+    color: #50616d;
   }
   #root {
     padding: 10px;
-    background-color: #5a5a5a;
+    background-color: #d7d7d7;
+    overflow: hidden;
+  }
+  span {
+    font-size: 18px;
+  }
+}
+
+.container {
+  width: 100%;
+  > div > div {
+    height: 100%;
   }
 }
 
 .basic {
+  padding: 5px 0;
+  margin-bottom: 20px;
+
   span {
     margin: 0 5px;
-    &.city {
-      background-color: #34352c;
+    &.city, &.aqi {
       padding: 5px;
       border-radius: 3px;
     }
+    &.city {
+      background-color: #50616d;
+      color: ghostwhite;
+    }
+    &.aqi {
+      border-left: 5px solid;
+      border-right: 5px solid;
+      span {
+        font-weight: bold;
+      }
+
+      @level_1: #6eb720;
+      @level_2: #d6c60f;
+      @level_3: #ec7e22;
+      @level_4: #ce3333;
+      @level_5: #a61d71;
+      @level_6: #420045;
+      &.level_1 {
+        border-color: @level_1;
+        span {
+          color: @level_1;
+        }
+      }
+      &.level_2 {
+        border-color: @level_2;
+        span {
+          color: @level_2;
+        }
+      }
+      &.level_3 {
+        border-color: @level_3;
+        span {
+          color: @level_3;
+        }
+      }
+      &.level_4 {
+        border-color: @level_4;
+        span {
+          color: @level_4;
+        }
+      }
+      &.level_5 {
+        border-color: @level_5;
+        span {
+          color: @level_5;
+        }
+      }
+      &.level_6 {
+        border-color: @level_6;
+        span {
+          color: @level_6;
+        }
+      }
+    }
+  }
+}
+
+.now {
+  height: 125px;
+  margin-bottom: 20px;
+
+  .curr_tmp {
+    font-size: 72px;
+    line-height: 125px;
+  }
+
+  .curr_icon {
+    display: block;
+    float: left;
+    height: 100%;
+    margin-right: 20px;
+  }
+
+  .curr_weather {
+    display: block;
+    float: left;
+    height: 100%;
+    padding: 20px 0;
+    span {
+      line-height: 45px;
+      font-size: 24px;
+      display: block;
+    }
+  }
+}
+
+.forecast {
+  overflow: hidden;
+
+  span {
+    display: block;
+    text-align: center;
+    margin: 5px auto;
+  }
+
+  .panel {
+    .panel-heading {
+      font-size: 18px;
+      text-align: center;
+    }
+  }
+
+  .icon {
+    height: 80px;
+    width: 180px;
+    margin: 5px auto;
+    img {
+      height: 100%;
+      margin: auto 5px;
+    }
+  }
+}
+
+.alert {
+  * {
+    font-size: 16px;
   }
 }

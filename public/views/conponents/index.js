@@ -20,17 +20,31 @@
 
 const React = require('react');
 const {Provider} = require('react-redux');
-const store = require('../store');
+const {Grid} = require('react-bootstrap');
+const {period} = require('../config');
+
+const store = require('../store/index');
 const {fetchAction} = require('../store/actions');
 
-const Nav = require('./basic');
-
 store.dispatch(fetchAction());
+setInterval(() => {
+    store.dispatch(fetchAction());
+}, period * 1000);
+
+const Basic = require('./basic');
+const Now = require('./now');
+const Forecast = require('./forecast');
+const Alarm = require('./alarm');
 
 module.exports = function () {
     return (
         <Provider store={store}>
-            <Nav/>
+            <Grid>
+                <Basic/>
+                <Now/>
+                <Forecast/>
+                <Alarm/>
+            </Grid>
         </Provider>
     )
 };

@@ -43,7 +43,7 @@ function fetchPost() {
 }
 
 function shouldFetchPost(state) {
-    return !state.fetchingMode;
+    return !(state.fetchingMode > 0);
 }
 
 export const fetchAction = function () {

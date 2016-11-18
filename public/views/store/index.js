@@ -17,3 +17,9 @@
 /**
  * Created by ManerFan on 2016/11/17.
  */
+
+const {createStore, applyMiddleware} = require('redux');
+const thunkMiddleware = require('redux-thunk').default;
+const rootReducer = require('./reducers/index');
+
+module.exports = createStore(rootReducer, applyMiddleware(thunkMiddleware));

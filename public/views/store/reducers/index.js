@@ -15,16 +15,18 @@
  */
 
 /**
- * Created by ManerFan on 2016/11/15.
+ * Created by ManerFan on 2016/11/17.
  */
 
-require('../../public/stylesheets/main.less');
+const {REQUEST_POST, RECEIVE_POST, ERROR_POST} = require('../actions/index');
+const {handleActions} = require('redux-actions');
+/*const {combineReducers} = require('redux');*/
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const Root = require('./conponents');
-
-ReactDOM.render(
-    <Root/>,
-    document.getElementById('root')
-);
+module.exports = handleActions({
+    REQUEST_POST: (state, action) => Object.assign({}, state, {fetchingMode: 1}),
+    RECEIVE_POST: (state, action) => Object.assign({}, state, {fetchingMode: 0, data: action.payload}),
+    ERROR_POST: (state, action) => Object.assign({}, state, {fetchingMode: -1})
+}, {
+    fetchingMode: 0,
+    data: {}
+});
