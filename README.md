@@ -21,6 +21,10 @@ npm install
 前往[和风天气](http://www.heweather.com/)，注册并申请KEY
 
 修改 `simple-weather-service/config/index.js` 中 `key` 为上述申请的KEY
+
+## 预报城市
+
+修改 `simple-weather-service/config/index.js` 中 `city` 为您希望预报的城市
  
 ## 构建并运行
 
