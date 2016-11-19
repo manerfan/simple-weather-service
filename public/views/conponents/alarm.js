@@ -22,7 +22,7 @@ const React = require('react');
 const {connect} = require('react-redux');
 const {Alert} = require('react-bootstrap');
 
-const Alarm = ({alarms = [{txt: '这里显示预警信息：预计今天下午到明天，我市北风风力海上6到7级阵风9级，陆地4到5阵风7级，请注意防范。'}]}) => {
+const Alarm = ({alarms = []}) => {
     if (!!alarms && alarms.length > 0) {
         return (
             <Alert bsStyle="danger">

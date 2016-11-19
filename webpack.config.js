@@ -32,7 +32,7 @@ let config = {
     entry: {
         app: './public/views',
         vendor: [
-            'redux', 'redux-promise', 'redux-actions',
+            'redux', 'redux-thunk', 'redux-actions',
             'react', 'react-dom', 'react-redux', 'react-bootstrap',
             'whatwg-fetch'
         ]

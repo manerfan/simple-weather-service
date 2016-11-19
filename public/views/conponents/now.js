@@ -51,7 +51,7 @@ const CurrWeather = ({cond, today}) => {
     return (
         <Col xs={5} md={5} lg={5}>
             <img className="curr_icon" src={weatherIcon(cond.code)}/>
-            <div className="curr_weather">
+            <div style={{position: 'absolute', paddingLeft: '125px'}} className="curr_weather">
                 <span>{cond.txt} {today.tmp.max}℃/{today.tmp.min}℃</span>
                 <span>{today.wind.sc} {today.wind.spd}级</span>
             </div>
@@ -88,8 +88,8 @@ class CurrDate extends React.Component {
     render() {
         return (
             <Col xs={4} md={4} lg={4}>
-                <div className="pull-right curr_weather">
-                    <span >{formatDate(this.props.date)} {formatWeek(this.props.date)}</span>
+                <div style={{width:'100%'}}  className="pull-right curr_weather">
+                    <span style={{textAlign: 'right'}} >{formatDate(this.props.date)} {formatWeek(this.props.date)}</span>
                     <span style={{textAlign: 'right'}}>{this.state.time}</span>
                 </div>
             </Col>

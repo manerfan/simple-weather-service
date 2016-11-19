@@ -19,10 +19,10 @@
  */
 
 const config = module.exports = {
-    port: 80,
+    port: 3000,
     url: 'https://free-api.heweather.com/v5/weather',
     docs: 'http://docs.heweather.com',
     city: '西安',
-    key: 'Your App Key Here!',
+    key: 'ae9e0e3dec674c108ffd38523a9a9f9b',
     logDir: 'logs'
 };
